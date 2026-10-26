@@ -17,7 +17,7 @@ function isValidProduct(product) {
 export async function loadProducts() {
   let response;
   try {
-    response = await fetch("./data/products.json", { headers: { Accept: "application/json" } });
+    response = await fetch("./data/product.json", { headers: { Accept: "application/json" } });
   } catch (error) {
     throw new Error("No fue posible conectar con el catálogo. Comprueba que la aplicación esté abierta desde un servidor local e inténtalo de nuevo.", { cause: error });
   }
