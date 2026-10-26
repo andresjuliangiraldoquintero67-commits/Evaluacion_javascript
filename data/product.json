@@ -1,0 +1,137 @@
+[
+  {
+    "id": 101,
+    "name": "Teclado mecánico",
+    "category": "Periféricos",
+    "price": 189900,
+    "stock": 8,
+    "description": "Teclado USB para uso diario con teclas cómodas y precisas.",
+    "active": true
+  },
+  {
+    "id": 102,
+    "name": "Mouse inalámbrico",
+    "category": "Periféricos",
+    "price": 79900,
+    "stock": 15,
+    "description": "Mouse óptico inalámbrico con receptor USB compacto.",
+    "active": true
+  },
+  {
+    "id": 103,
+    "name": "Teclado compacto",
+    "category": "Periféricos",
+    "price": 129900,
+    "stock": 0,
+    "description": "Teclado compacto para espacios de trabajo reducidos.",
+    "active": true
+  },
+  {
+    "id": 104,
+    "name": "Audífonos USB",
+    "category": "Periféricos",
+    "price": 149900,
+    "stock": 6,
+    "description": "Audífonos con micrófono integrado para llamadas y reuniones.",
+    "active": true
+  },
+  {
+    "id": 105,
+    "name": "Webcam HD",
+    "category": "Periféricos",
+    "price": 219900,
+    "stock": 4,
+    "description": "Cámara web HD con conexión USB para videollamadas.",
+    "active": true
+  },
+  {
+    "id": 106,
+    "name": "Mouse ergonómico",
+    "category": "Periféricos",
+    "price": 99900,
+    "stock": 9,
+    "description": "Mouse ergonómico con cable para jornadas de trabajo.",
+    "active": false
+  },
+  {
+    "id": 201,
+    "name": "Cable USB-C",
+    "category": "Accesorios",
+    "price": 29900,
+    "stock": 30,
+    "description": "Cable USB-C de un metro para carga y transferencia de datos.",
+    "active": true
+  },
+  {
+    "id": 202,
+    "name": "Hub USB de 4 puertos",
+    "category": "Accesorios",
+    "price": 64900,
+    "stock": 12,
+    "description": "Hub USB compacto para conectar hasta cuatro dispositivos.",
+    "active": true
+  },
+  {
+    "id": 203,
+    "name": "Base para portátil",
+    "category": "Accesorios",
+    "price": 119900,
+    "stock": 7,
+    "description": "Soporte ajustable que mejora la altura y ventilación del portátil.",
+    "active": true
+  },
+  {
+    "id": 204,
+    "name": "Adaptador HDMI",
+    "category": "Accesorios",
+    "price": 45900,
+    "stock": 0,
+    "description": "Adaptador USB-C a HDMI para conectar una pantalla externa.",
+    "active": true
+  },
+  {
+    "id": 205,
+    "name": "Alfombrilla extendida",
+    "category": "Accesorios",
+    "price": 55900,
+    "stock": 14,
+    "description": "Alfombrilla amplia con superficie suave para mouse y teclado.",
+    "active": true
+  },
+  {
+    "id": 301,
+    "name": "Tinta negra",
+    "category": "Suministros",
+    "price": 89900,
+    "stock": 10,
+    "description": "Cartucho de tinta negra para impresoras de inyección compatibles.",
+    "active": true
+  },
+  {
+    "id": 302,
+    "name": "Tóner láser",
+    "category": "Suministros",
+    "price": 249900,
+    "stock": 5,
+    "description": "Tóner de alto rendimiento para impresoras láser compatibles.",
+    "active": true
+  },
+  {
+    "id": 303,
+    "name": "Papel tamaño carta",
+    "category": "Suministros",
+    "price": 24900,
+    "stock": 40,
+    "description": "Resma de papel blanco tamaño carta para impresión cotidiana.",
+    "active": true
+  },
+  {
+    "id": 304,
+    "name": "Cartucho de color",
+    "category": "Suministros",
+    "price": 109900,
+    "stock": 3,
+    "description": "Cartucho de tinta a color para impresoras compatibles.",
+    "active": false
+  }
+]
