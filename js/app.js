@@ -1,7 +1,7 @@
 import { loadProducts } from "./api.js";
 import { calculateTotals, validateCart } from "./cart.js";
 import { restoreCart, saveCart } from "./storage.js";
-import "./components/product-card.js";
+import "./components/product-cart.js";
 import "./components/product-list.js";
 import "./components/shopping-cart.js";
 
