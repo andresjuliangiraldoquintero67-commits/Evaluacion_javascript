@@ -1,73 +1,98 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Explora productos tecnologicos y prepara tu pedido en TecnoStok.">
-    <title>TecnoStok | Suministros Tecnologicos</title>
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Explora productos tecnológicos y prepara tu pedido en TecnoStock.">
+    <title>TecnoStock | Suministros tecnológicos</title>
     <link rel="stylesheet" href="/css/styles.css">
     <script type="module" src="/js/app.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <header class="site-header">
-        <div class="header-inner">
-            <a class="brand" aria-label="TecnoStok, inicio">
-                <span class="brand-mark" aria-hidden="true">T</span>
-                <span>TecnoStok</span>
-            </a>
-            <p class="header-tagline">Tecnologia para tu dia a dia</p>
-            <a class="cart-shortcut" href="#carrito">
-                Carrito <span id="headers-units" class="units-badge" aria-live="polite">0</span>
-            </a>
-        </div>
+      <div class="header-inner">
+        <a class="brand" href="/" aria-label="TecnoStock, inicio">
+          <span class="brand-mark" aria-hidden="true">T</span>
+          <span>TecnoStock</span>
+        </a>
+        <p class="header-tagline">Tecnología para tu día a día</p>
+        <a class="cart-shortcut" href="#carrito">
+          Carrito <span id="header-units" class="unit-badge" aria-live="polite">0</span>
+        </a>
+      </div>
     </header>
-    <main class="page-shell">
-        <section class="intro" aria-labelledby="page-title">
-            <div>
-                <p class="eyebrow">Tienda de suministros tecnologicos</p>
-                <h1 id="page-title">Encuentra lo que necesitas</h1>
-                <p class="intro-copy">Explora el catalogo de productos, arma tu pedido y revisa el total antes de confirmar</p>
-            </div>
-            <div class="intro-note">
-                <span class="note-icon" aria-hidden="true">!</span>
-                <span>10% de descuento desde <strong>$300.000 COP</strong></span>
-            </div>
-        </section>
 
-        <section class="catalog-section" aria-labelledby="catalog-title">
-            <div class="section-heading">
-                <div>
-                <p class="eyebrow">Catalogo</p>
-                <h2 id="catalogo-title">Productos</h2>
-                </div>
-                <p id="catalog-count" class="muted count-label" aria-live="polite"></p>
-            </div>
-           <form id="filters" class="filters" role="search">
-            <div class="field search-field">
-                <label for="search">Busqueda</label>
-                <input id="search" name="search" type="search" placeholder="Nombre">
-            </div>
-            <div class="field">
-                <label for="category">Categoria</label>
-                <select id="category" name="category">
-                    <option value="">Todas las categorias</option>
-                </select>
-            </div>
-            <div class="field">
-                <label for="sort">Ordenar por precio</label>
-                <select id="sort" name="sort">
-                    <option value="default">Orden original</option>
-                    <option value="asc">Menor precio</option>
-                    <option value="desc">Mayor precio</option>
-                </select>
-            </div>
-            <label class="availability-filter">
-                <input id="available-only" name="available" type="checkbox">
-                <span>Solo disponibles</span>
-            </label>
-            <button id="clear-filters" class="button button-secondary clear-button" type="button">Limpiar filtros</button>
-           </form>
-        </section>
+    <main class="page-shell">
+      <section class="intro" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow">Tienda de suministros tecnológicos</p>
+          <h1 id="page-title">Encuentra lo que necesitas.</h1>
+          <p class="intro-copy">Explora el catálogo, arma tu pedido y revisa el total antes de confirmar.</p>
+        </div>
+        <div class="intro-note">
+          <span class="note-icon" aria-hidden="true">✓</span>
+          <span>10 % de descuento desde <strong>$300.000 COP</strong></span>
+        </div>
+      </section>
+
+      <section class="catalog-section" aria-labelledby="catalog-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Catálogo</p>
+            <h2 id="catalog-title">Productos</h2>
+          </div>
+          <p id="catalog-count" class="muted count-label" aria-live="polite"></p>
+        </div>
+
+        <form id="filters" class="filters" role="search">
+          <div class="field search-field">
+            <label for="search">Buscar</label>
+            <input id="search" name="search" type="search" placeholder="Nombre o descripción">
+          </div>
+          <div class="field">
+            <label for="category">Categoría</label>
+            <select id="category" name="category">
+              <option value="">Todas las categorías</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="sort">Ordenar por precio</label>
+            <select id="sort" name="sort">
+              <option value="default">Orden original</option>
+              <option value="asc">Menor precio</option>
+              <option value="desc">Mayor precio</option>
+            </select>
+          </div>
+          <label class="availability-filter">
+            <input id="available-only" name="available" type="checkbox">
+            <span>Solo disponibles</span>
+          </label>
+          <button id="clear-filters" class="button button-secondary clear-button" type="button">Limpiar filtros</button>
+        </form>
+
+        <p id="catalog-status" class="status-message" role="status" aria-live="polite">Cargando catálogo…</p>
+        <div id="catalog-error" class="error-panel" role="alert" hidden>
+          <p id="catalog-error-text"></p>
+          <button id="retry-catalog" class="button button-secondary" type="button">Intentar de nuevo</button>
+        </div>
+        <product-list id="product-list"></product-list>
+      </section>
+
+      <aside id="carrito" class="cart-panel" aria-labelledby="cart-title">
+        <div class="section-heading cart-heading">
+          <div>
+            <p class="eyebrow">Tu selección</p>
+            <h2 id="cart-title">Carrito</h2>
+          </div>
+          <span id="cart-units" class="cart-units">0 unidades</span>
+        </div>
+        <shopping-cart id="shopping-cart"></shopping-cart>
+        <p class="cart-footnote">El pedido es una simulación local. No se realiza ningún pago ni se actualiza el inventario.</p>
+      </aside>
+
+      <section id="order-feedback" class="order-feedback" role="status" aria-live="polite" hidden></section>
+      <p id="app-notice" class="app-notice" role="status" aria-live="polite" hidden></p>
     </main>
-</body>
+    <footer class="site-footer">TecnoStock <span aria-hidden="true">·</span> Suministros tecnológicos</footer>
+  </body>
 </html>
