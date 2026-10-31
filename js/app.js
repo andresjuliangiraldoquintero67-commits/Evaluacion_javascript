@@ -28,7 +28,14 @@ const elements = {
   headerUnits: document.querySelector("#header-units"),
   cartUnits: document.querySelector("#cart-units"),
   notice: document.querySelector("#app-notice"),
-  orderFeedback: document.querySelector("#order-feedback")
+  orderFeedback: document.querySelector("#order-feedback"),
+  checkoutDialog: document.querySelector("#checkout-dialog"),
+  checkoutItems: document.querySelector("#checkout-items"),
+  checkoutSubtotal: document.querySelector("#checkout-subtotal"),
+  checkoutDiscount: document.querySelector("#checkout-discount"),
+  checkoutTotal: document.querySelector("#checkout-total"),
+  checkoutCancel: document.querySelector("#checkout-cancel"),
+  checkoutConfirm: document.querySelector("#checkout-confirm")
 };
 
 let products = [];
@@ -139,9 +146,31 @@ function removeProduct(id) {
   commitCart(cartLines.filter((line) => line.id !== id));
 }
 
-function confirmOrder() {
+function openCheckout() {
   const validation = validateCart(cartLines, productsById);
   if (!validation.valid) {
+    showNotice(validation.reason);
+    return;
+  }
+
+  const totals = calculateTotals(cartLines, productsById);
+  elements.checkoutItems.replaceChildren();
+  for (const line of cartLines) {
+    const product = productsById.get(line.id);
+    const item = document.createElement("li");
+    item.textContent = `${product.name} × ${line.quantity} — ${currency.format(product.price * line.quantity)}`;
+    elements.checkoutItems.append(item);
+  }
+  elements.checkoutSubtotal.textContent = currency.format(totals.subtotal);
+  elements.checkoutDiscount.textContent = `−${currency.format(totals.discount)}`;
+  elements.checkoutTotal.textContent = currency.format(totals.total);
+  elements.checkoutDialog.showModal();
+}
+
+function placeOrder() {
+  const validation = validateCart(cartLines, productsById);
+  if (!validation.valid) {
+    elements.checkoutDialog.close();
     showNotice(validation.reason);
     return;
   }
@@ -173,6 +202,7 @@ function confirmOrder() {
   note.textContent = "Esta es una simulación local; no se efectuó ningún pago ni se modificó el inventario.";
   elements.orderFeedback.append(title, identifier, lineList, totalsText, note);
   elements.orderFeedback.hidden = false;
+  elements.checkoutDialog.close();
   commitCart([]);
   elements.orderFeedback.scrollIntoView({ behavior: "smooth", block: "nearest" });
 }
@@ -219,7 +249,9 @@ elements.cart.addEventListener("cart-remove-request", (event) => removeProduct(e
 elements.cart.addEventListener("cart-clear-request", () => {
   if (cartLines.length > 0) commitCart([]);
 });
-elements.cart.addEventListener("cart-confirm-request", confirmOrder);
+elements.cart.addEventListener("cart-confirm-request", openCheckout);
+elements.checkoutCancel.addEventListener("click", () => elements.checkoutDialog.close());
+elements.checkoutConfirm.addEventListener("click", placeOrder);
 
 updateCartView();
 initializeCatalog();
