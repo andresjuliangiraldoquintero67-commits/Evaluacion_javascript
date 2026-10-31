@@ -92,6 +92,28 @@
 
       <section id="order-feedback" class="order-feedback" role="status" aria-live="polite" hidden></section>
       <p id="app-notice" class="app-notice" role="status" aria-live="polite" hidden></p>
+
+      <dialog id="checkout-dialog" class="checkout-dialog" aria-labelledby="checkout-title">
+        <div class="checkout-content">
+          <p class="eyebrow">Revisión final</p>
+          <h2 id="checkout-title">Confirma tu pedido</h2>
+          <p>Revisa los productos y el total antes de finalizar.</p>
+          <ul id="checkout-items" class="checkout-items"></ul>
+          <dl class="cart-summary">
+            <dt>Subtotal</dt>
+            <dd id="checkout-subtotal"></dd>
+            <dt>Descuento</dt>
+            <dd id="checkout-discount" class="discount-value"></dd>
+            <dt>Total</dt>
+            <dd id="checkout-total" class="total-value"></dd>
+          </dl>
+          <p class="checkout-note">Esta es una simulación local. No se realizará ningún pago ni se actualizará el inventario.</p>
+          <div class="checkout-actions">
+            <button id="checkout-cancel" class="button button-secondary" type="button">Volver al carrito</button>
+            <button id="checkout-confirm" class="button button-primary" type="button">Confirmar pedido</button>
+          </div>
+        </div>
+      </dialog>
     </main>
     <footer class="site-footer">TecnoStock <span aria-hidden="true">·</span> Suministros tecnológicos</footer>
   </body>
