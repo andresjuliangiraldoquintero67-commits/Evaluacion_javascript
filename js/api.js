@@ -2,6 +2,7 @@ function isValidProduct(product) {
   return product !== null
     && typeof product === "object"
     && Number.isSafeInteger(product.id)
+    && product.id >= 0
     && typeof product.name === "string"
     && product.name.trim().length > 0
     && typeof product.category === "string"

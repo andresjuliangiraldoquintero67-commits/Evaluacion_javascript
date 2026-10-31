@@ -27,7 +27,7 @@ export function restoreCart(productsById) {
   const seen = new Set();
   let discarded = 0;
   for (const item of saved) {
-    if (!item || !Number.isSafeInteger(item.id) || !Number.isSafeInteger(item.quantity) || item.quantity < 1 || seen.has(item.id)) {
+    if (!item || !Number.isSafeInteger(item.id) || item.id < 0 || !Number.isSafeInteger(item.quantity) || item.quantity < 1 || seen.has(item.id)) {
       discarded += 1;
       continue;
     }
